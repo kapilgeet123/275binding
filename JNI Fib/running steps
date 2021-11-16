@@ -1,0 +1,10 @@
+javac FibLib.java
+
+
+javac Sample1.java -h .
+ gcc -dynamiclib -O3 \
+    -I"/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/include/" \
+    -I"/Library/Java/JavaVirtualMachines/adoptopenjdk-11.jdk/Contents/Home/include/darwin" \
+    FibLib.c -o libFibonacci.dylib
+
+java -cp . -Djava.library.path=. FibLib
